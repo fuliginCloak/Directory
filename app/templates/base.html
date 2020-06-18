@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/base.css') }}">
+     <script src="{{url_for('static', filename='nav.js')}}"></script>
+     <meta content="width=device-width, initial-scale=1" name="viewport" />
+     {% if title %}
+     <title>{{ title }} - BOHN Managment</title>
+     {% else %}
+     <title>Welcome to BOHN Managment</title>
+     {% endif %}
+</head>
+<body>
+    
+   <div class="nav-title">
+        <a href="/home">BOHN Management</a>
+   </div>
+
+    <div class="nav-section">
+        <nav class="navbar">
+            <div class="hamburger-menu">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+            </div>
+
+                <ul class="navbar-links">             
+                    <!-- <li class="nav-item nav-link"><a href="/home">Home</a></li> -->
+                    <li class="nav-item nav-link"><a href="/about">About</a></li>
+                    <li class="nav-item nav-link"><a href="/contact">Contact</a></li>
+                    <li class="nav-item nav-link"><a href="/land-listings">Land </a></li>
+                    <li class="nav-item nav-link"><a href="/payments">Payments</a></li>
+                </ul>  
+        </nav>
+    </div>
+    <div class="main-bg">
+
+    </div>
+ 
+    {% block content %}
+ 
+    {% endblock %}
+</body>
+</html>

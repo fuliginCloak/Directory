@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="section-head">
+        <h1>Make a Payment</h1>
+    </div>
+    <div class="form-section">
+        <form action="" method = 'POST' novalidate>
+            <!-- CSRF protection -->
+            {{ form.hidden_tag() }}
+
+            <div class="container ">
+            <p>
+                {{ form.fullname.label() }} 
+                {{ form.fullname() }}
+            </p>
+            <p>
+                {{ form.email.label() }} 
+                {{ form.email() }}
+            </p>
+            <p>
+                {{ form.card_number.label() }} 
+                {{ form.card_number() }}
+            </p>
+            <p>
+                {{ form.exp_date.label() }} 
+                {{ form.exp_date() }}
+            </p>
+            <p>
+                {{ form.security.label() }} 
+                {{ form.security() }}
+            <p>
+                {{ form.zip_code.label() }} 
+                {{ form.zip_code() }}
+            </p>
+            <p>
+                {{ form.amount.label() }} 
+                {{ form.amount() }}
+            </p>
+            <p>
+                {{ form.submit(class = 'btn') }}
+            </p>
+        </div>  
+        </form>
+    </div>
+    {% endblock %}

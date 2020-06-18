@@ -1,0 +1,123 @@
+
+
+@font-face{
+    font-family: 'customfont';
+    src: url("/static/fonts/Walkway_Bold.woff") format('woff');
+}
+
+@media screen and (max-width: 600px) {
+
+
+    .hamburger-menu{
+        width: 4em;
+        height: 4em;
+        position: fixed;
+        top: 1rem;
+        right: 4.5rem;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-evenly !important;
+    }
+
+    .line{
+        width: 100%;
+        height: .5em;
+        background-color: #a8b5ac;
+        
+    }
+
+    .navbar{
+        width: 40vw;
+        height: 100%;
+        background-color: #35435A;
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        line-height: 10em;
+       
+    }
+    .navbar-links {
+        display: inline !important;
+        text-align: center;
+    
+        font-size: 2vw;
+        background-image: none !important;
+        padding: 1em !important;  
+        position: relative !important;  
+    }
+
+    .nav-link::before,
+    .nav-link::after{
+        content: "";
+        width: 130%;
+        height: .2vw;
+        background-color: #a8b5ac;
+        position: absolute !important;
+        left: 0;
+    }
+
+    .nav-link::after{
+        bottom: 0;
+    }
+    
+    .nav-link::before{
+        top: 1;
+    }
+
+    .nav-title a{
+        font-size: 3vh  !important;
+        text-indent: 0.5em  !important;
+        
+        color: #000000 !important;
+       
+    }
+  }
+
+
+  *{
+      padding: 0em;
+      margin: 0em;
+      box-sizing: border-box;
+  }
+
+  
+
+
+.container p, .section-head{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+
+.navbar-links  {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    padding: 3em 10em 3em 3em;
+    text-indent: 5em;
+    background-image: linear-gradient(to right, #35435A , #000000);
+}
+
+.nav-title a{
+    position: absolute;
+    color: rgb(191, 219, 184);
+    text-indent: .5em;
+    font-size: 4em;
+    font-family: 'customfont';
+    padding-top: .5em;
+    text-decoration: none;
+}
+.navbar-links a{
+    text-decoration: none;
+    color: rgb(191, 219, 184);
+    font-size: 2em;
+    font-family: 'customfont';
+    
+}
+
+
