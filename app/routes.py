@@ -20,3 +20,7 @@ def listings():
 @app.route('/about')
 def about():
     return render_template('about.html', title = "About")
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html', title = 'FAQ')

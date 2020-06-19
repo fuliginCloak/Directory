@@ -2,7 +2,6 @@
 <html>
 <head>
      <link rel="stylesheet" href="{{ url_for('static', filename = 'css/base.css') }}">
-     <script src="{{url_for('static', filename='nav.js')}}"></script>
      <meta content="width=device-width, initial-scale=1" name="viewport" />
      {% if title %}
      <title>{{ title }} - BOHN Managment</title>
@@ -12,7 +11,8 @@
 </head>
 <body>
     
-   <div class="nav-title">
+    
+    <div class="nav-title">
         <a href="/home">BOHN Management</a>
    </div>
 
@@ -25,9 +25,9 @@
             </div>
 
                 <ul class="navbar-links">             
-                    <!-- <li class="nav-item nav-link"><a href="/home">Home</a></li> -->
+                    <li class="nav-item nav-link"><a href="/home">Home</a></li>
                     <li class="nav-item nav-link"><a href="/about">About</a></li>
-                    <li class="nav-item nav-link"><a href="/contact">Contact</a></li>
+                    <li class="nav-item nav-link"><a href="/faq">FAQ</a></li>
                     <li class="nav-item nav-link"><a href="/land-listings">Land </a></li>
                     <li class="nav-item nav-link"><a href="/payments">Payments</a></li>
                 </ul>  
@@ -40,5 +40,6 @@
     {% block content %}
  
     {% endblock %}
+    <script type="text/javascript" src="{{url_for('static', filename='nav.js')}}"></script>
 </body>
 </html>
