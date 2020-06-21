@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% block head %}
      <link rel="stylesheet" href="{{ url_for('static', filename = 'css/base.css') }}">
+     <script src="https://kit.fontawesome.com/9efe5e9e85.js" crossorigin="anonymous"></script>
      <meta content="width=device-width, initial-scale=1" name="viewport" />
+     {% endblock %}
      {% if title %}
      <title>{{ title }} - BOHN Managment</title>
      {% else %}
@@ -11,6 +14,8 @@
 </head>
 <body>
     
+    
+    <div class="base-container">
     
     <div class="nav-title">
         <a href="/home">BOHN Management</a>
@@ -36,10 +41,11 @@
     <div class="main-bg">
 
     </div>
- 
+</div>
     {% block content %}
  
     {% endblock %}
     <script type="text/javascript" src="{{url_for('static', filename='nav.js')}}"></script>
+    
 </body>
 </html>

@@ -1,4 +1,72 @@
 {% extends "base.html" %}
 
+
+
 {% block content %}
+
+<div class="return-home">
+    <a href="/home"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
+</div>
+
+
+
+<div class="form-title">
+    <h1>Land for sale</h1>
+</div>
+
+<div class="form-section">
+    <form action="" method = 'post' id="listing" enctype="multipart/form-data">
+        <!-- CSRF protection -->
+        {{ form.hidden_tag() }}
+
+    <div class="form-content">
+        <div class="col">
+            {{ form.title.label() }} 
+            {{ form.title() }}
+        </div>
+        <div class="col">
+            {{ form.price.label() }} 
+            {{ form.price() }}
+        </div>
+        <div class="col">
+            {{ form.acres.label() }} 
+            {{ form.acres() }}
+        </div>
+        <div class="col">
+            {{ form.state.label() }} 
+            {{ form.state() }}
+        </div>
+        <div class="col">
+            {{ form.city.label() }} 
+            {{ form.city() }}
+        </div>
+        <div class="col">
+            {{ form.county.label() }} 
+            {{ form.county() }}
+        </div>
+          <div class="col">
+            {{ form.images.label() }} 
+            {{ form.images() }}
+        </div>
+        <!-- <input id="pictures" multiple name="Showcase" type="file"> -->
+    </br>
+        <div class="col">
+            {{ form.upload.label() }} 
+            {{ form.upload(multiple="") }}
+        </div>
+
+        
+    </br>
+  
+        <div class="col">
+            {{ form.short.label() }} 
+            {{ form.short() }}
+        </div>
+        <div class="col">
+            {{ form.long.label() }} 
+            {{ form.long() }}
+        </div>
+
+    </div>
+
 {% endblock %}

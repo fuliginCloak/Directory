@@ -1,46 +1,52 @@
 {% extends "base.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/processing.css') }}">
+<script src="https://kit.fontawesome.com/9efe5e9e85.js" crossorigin="anonymous"></script>
+{% endblock %}
 {% block content %}
-    <div class="section-head">
+
+<div class="return-home">
+    <a href="/home"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
+    </div>
+<script src="https://js.stripe.com/v3/"></script>
+
+
+    <div class="form-title">
         <h1>Make a Payment</h1>
     </div>
+
     <div class="form-section">
-        <form action="" method = 'POST' novalidate>
+        <form action="/charge" method = 'post' id="processing">
             <!-- CSRF protection -->
             {{ form.hidden_tag() }}
 
-            <div class="container ">
-            <p>
+        <!-- <div class="form-row inline ">
+            <div class="col">
                 {{ form.fullname.label() }} 
                 {{ form.fullname() }}
-            </p>
-            <p>
+            <div class="col">
                 {{ form.email.label() }} 
-                {{ form.email() }}
-            </p>
-            <p>
-                {{ form.card_number.label() }} 
-                {{ form.card_number() }}
-            </p>
-            <p>
-                {{ form.exp_date.label() }} 
-                {{ form.exp_date() }}
-            </p>
-            <p>
-                {{ form.security.label() }} 
-                {{ form.security() }}
-            <p>
-                {{ form.zip_code.label() }} 
-                {{ form.zip_code() }}
-            </p>
-            <p>
-                {{ form.amount.label() }} 
-                {{ form.amount() }}
-            </p>
-            <p>
-                {{ form.submit(class = 'btn') }}
-            </p>
-        </div>  
-        </form>
+                {{ form.email() }} -->
+        <div class="form-row">
+            <div id="payment-method">
+            <label for="card-element">
+              Credit or debit card
+            </div>
+            </label>
+            <div id="card-element">
+              <!-- A Stripe Element will be inserted here. -->
+            </div>
+        
+            <!-- Used to display form errors. -->
+            <div id="card-errors" role="alert"></div>
+          </div>
+        
+          <button class="btn">Submit Payment</button>
+        </div>
     </div>
+    </div> 
+    
+<script type="text/javascript" src="{{url_for('static', filename='processing.js')}}"></script>
+           
     {% endblock %}

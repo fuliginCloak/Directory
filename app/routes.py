@@ -1,5 +1,5 @@
 from app import app
-from app.forms import  PaymentForm 
+from app.forms import  PaymentForm , AddListing
 from flask import render_template, redirect, url_for
 
 @app.route('/')
@@ -15,7 +15,8 @@ def processing():
 
 @app.route('/land-listings')
 def listings():
-    return render_template('listings.html', title = "Land for sale")
+    form = AddListing()
+    return render_template('listings.html', title = "Land for sale", form=form)
 
 @app.route('/about')
 def about():
