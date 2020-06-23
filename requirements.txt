@@ -1,7 +1,7 @@
+3==0.0.0
 alembic==1.4.2
 awscli==1.18.85
 boto==2.49.0
-botocore==1.17.9
 click==7.1.2
 colorama==0.4.3
 dnspython==1.16.0

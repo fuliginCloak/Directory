@@ -1,4 +1,4 @@
-from boto3 import *
+from boto import boto3
 
 
 def upload_file(file_name, bucket):
