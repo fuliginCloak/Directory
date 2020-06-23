@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="login-title">
+    <h1>Login</h1>
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<form action="" method = 'POST' id="login">
+    <!-- CSRF protection -->
+    {{ form.hidden_tag() }}
+
+    <div class="login-container">
+        <div class="form-field field-1">
+            {{ form.username.label() }} 
+            {{ form.username() }}
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="form-field field-2">
+            {{ form.password.label() }} 
+            {{ form.password() }}
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="form-field field-check">
+            {{ form.remember() }} 
+            {{ form.remember.label }}
+        </div>
+        <div class="form-field field-submit"> 
+            {{ form.submit() }} 
+        </div>
+    </div>
+<div class="form-section">
+    <p>Change credentials? <a href="{{ url_for('register') }}">Click to Change!</a></p>
+{% endblock %}

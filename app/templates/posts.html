@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/processing.css') }}">
+<script src="https://kit.fontawesome.com/9efe5e9e85.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+
 
 
 {% block content %}
@@ -8,16 +14,35 @@
     <a href="/home"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
 </div>
 
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
 
 
 <div class="form-title">
     <h1>Land for sale</h1>
 </div>
 
+
+{% if current_user.is_anonymous %}
+<a href="{{ url_for('login') }}">Login</a>
+{% else %}
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endif %}
+
+
 <div class="form-section">
-    <form action="" method = 'post' id="listing" enctype="multipart/form-data">
+    <form action="" method = 'POST' method = 'GET' id="listing">
         <!-- CSRF protection -->
         {{ form.hidden_tag() }}
+      
 
     <div class="form-content">
         <div class="col">
@@ -37,24 +62,9 @@
             {{ form.state() }}
         </div>
         <div class="col">
-            {{ form.city.label() }} 
-            {{ form.city() }}
-        </div>
-        <div class="col">
             {{ form.county.label() }} 
             {{ form.county() }}
         </div>
-          <div class="col">
-            {{ form.images.label() }} 
-            {{ form.images() }}
-        </div>
-        <!-- <input id="pictures" multiple name="Showcase" type="file"> -->
-    </br>
-        <div class="col">
-            {{ form.upload.label() }} 
-            {{ form.upload(multiple="") }}
-        </div>
-
         
     </br>
   
@@ -65,6 +75,17 @@
         <div class="col">
             {{ form.long.label() }} 
             {{ form.long() }}
+        </div>
+
+        <div class="col">
+            {{ form.images.label() }} 
+            {{ form.images() }}
+        </div>
+
+        <!-- <input id="pictures" multiple name="Showcase" type="file"> -->
+
+        <div class="form-field field-submit"> 
+            {{ form.submit() }} 
         </div>
 
     </div>
